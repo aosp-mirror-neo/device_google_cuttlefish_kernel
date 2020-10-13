@@ -3988,6 +3988,7 @@
   __free_pages
   __get_free_pages
   __get_task_comm
+  __get_vm_area
   __getblk_gfp
   __hrtimer_get_remaining
   __hwspin_lock_timeout
@@ -4005,8 +4006,11 @@
   __kfifo_alloc
   __kfifo_free
   __kfifo_in
+  __kfifo_init
   __kfifo_out
+  __kfifo_out_peek
   __kfifo_to_user
+  __kfree_skb
   __kmalloc
   __kthread_init_worker
   __list_add_valid
@@ -4158,6 +4162,8 @@
   arch_set_freq_scale
   arch_setup_dma_ops
   arch_timer_read_counter
+  argv_free
+  argv_split
   arm64_const_caps_ready
   atomic_notifier_call_chain
   atomic_notifier_chain_register
@@ -4235,6 +4241,7 @@
   cfg80211_mgmt_tx_status
   cfg80211_michael_mic_failure
   cfg80211_new_sta
+  cfg80211_port_authorized
   cfg80211_put_bss
   cfg80211_ready_on_channel
   cfg80211_remain_on_channel_expired
@@ -4248,6 +4255,9 @@
   cfg80211_vendor_cmd_reply
   class_create_file_ns
   class_destroy
+  class_dev_iter_exit
+  class_dev_iter_init
+  class_dev_iter_next
   class_find_device
   class_interface_unregister
   class_unregister
@@ -4341,6 +4351,7 @@
   cpufreq_frequency_table_verify
   cpufreq_generic_attr
   cpufreq_generic_frequency_table_verify
+  cpufreq_get
   cpufreq_quick_get
   cpufreq_quick_get_max
   cpufreq_register_driver
@@ -4357,6 +4368,7 @@
   crc32_le
   crc8
   crc8_populate_msb
+  create_function_device
   crypto_alloc_shash
   crypto_destroy_tfm
   crypto_register_rngs
@@ -4476,6 +4488,7 @@
   devm_gpio_request
   devm_gpio_request_one
   devm_gpiochip_add_data
+  devm_gpiod_get
   devm_gpiod_get_optional
   devm_iio_channel_get
   devm_iio_device_alloc
@@ -4844,6 +4857,7 @@
   dw_pcie_read
   dw_pcie_setup_rc
   dw_pcie_write
+  emergency_restart
   enable_irq
   enable_percpu_irq
   end_buffer_read_sync
@@ -4924,10 +4938,12 @@
   get_cpu_device
   get_cpu_idle_time
   get_device
+  get_mm_exe_file
   get_options
   get_pid_task
   get_random_bytes
   get_random_u32
+  get_task_pid
   get_thermal_instance
   get_unmapped_area
   get_unused_fd_flags
@@ -4942,6 +4958,7 @@
   gether_get_dev_addr
   gether_get_host_addr
   gether_get_host_addr_cdc
+  gether_get_host_addr_u8
   gether_get_ifname
   gether_get_qmult
   gether_register_netdev
@@ -5014,6 +5031,7 @@
   i2c_adapter_type
   i2c_add_adapter
   i2c_add_numbered_adapter
+  i2c_bit_add_numbered_bus
   i2c_bus_type
   i2c_del_adapter
   i2c_del_driver
@@ -5286,6 +5304,7 @@
   kthread_unpark
   kthread_worker_fn
   ktime_get
+  ktime_get_coarse_with_offset
   ktime_get_mono_fast_ns
   ktime_get_raw
   ktime_get_raw_ts64
@@ -5608,6 +5627,7 @@
   phy_reset
   phy_set_mode_ext
   physvirt_offset
+  pid_task
   pinconf_generic_dt_node_to_map
   pinctrl_add_gpio_range
   pinctrl_dev_get_drvdata
@@ -5813,6 +5833,7 @@
   rfkill_destroy
   rfkill_init_sw_state
   rfkill_register
+  rfkill_set_sw_state
   rfkill_unregister
   rndis_deregister
   rndis_free_response
@@ -5899,6 +5920,7 @@
   sdhci_set_bus_width
   sdhci_setup_host
   sdio_signal_irq
+  send_sig
   send_sig_info
   seq_lseek
   seq_printf
@@ -5948,6 +5970,7 @@
   skb_copy_bits
   skb_copy_datagram_iter
   skb_copy_expand
+  skb_copy_ubufs
   skb_dequeue
   skb_free_datagram
   skb_pull
@@ -5966,6 +5989,7 @@
   smp_call_function_single
   smp_call_function_single_async
   smp_call_on_cpu
+  smpboot_unregister_percpu_thread
   snd_card_free
   snd_card_new
   snd_card_register
@@ -6093,6 +6117,7 @@
   sock_alloc_send_skb
   sock_create_kern
   sock_gettstamp
+  sock_i_uid
   sock_init_data
   sock_no_accept
   sock_no_getsockopt
@@ -6106,6 +6131,7 @@
   sock_register
   sock_release
   sock_unregister
+  sock_wfree
   sort
   spi_bus_type
   spi_controller_resume
@@ -6161,6 +6187,7 @@
   strreplace
   strscpy
   strsep
+  strspn
   strstr
   submit_bh
   subsys_system_register
@@ -6358,6 +6385,8 @@
   usb_free_urb
   usb_function_register
   usb_function_unregister
+  usb_gadget_connect
+  usb_gadget_disconnect
   usb_gadget_giveback_request
   usb_gadget_map_request_by_dev
   usb_gadget_set_state
@@ -6547,6 +6576,7 @@
   vm_unmap_ram
   vmalloc
   vmalloc_to_page
+  vmalloc_to_pfn
   vmalloc_user
   vmap
   vmemmap
@@ -15946,6 +15976,7 @@
   config_ep_by_speed
   config_group_init_type_name
   config_item_put
+  console_printk
   console_stop
   console_suspend_enabled
   __const_udelay
@@ -16125,6 +16156,7 @@
   devm_reset_controller_register
   devm_rtc_device_register
   devm_snd_soc_register_card
+  devm_snd_soc_register_component
   devm_thermal_zone_of_sensor_register
   devm_usb_get_phy
   devm_usb_get_phy_by_phandle
@@ -16480,6 +16512,7 @@
   find_next_zero_bit
   find_snd_usb_substream
   find_vma
+  find_vpid
   finish_wait
   firmware_request_nowarn
   fixed_phy_register
@@ -16544,9 +16577,11 @@
   gether_set_host_addr
   gether_set_qmult
   gether_setup_name_default
+  get_pid_task
   get_random_bytes
   get_random_u32
   __get_task_comm
+  get_task_mm
   get_unmapped_area
   get_unused_fd_flags
   get_user_pages
@@ -16612,6 +16647,8 @@
   i2c_get_dma_safe_msg_buf
   i2c_put_dma_safe_msg_buf
   i2c_register_driver
+  i2c_smbus_read_byte_data
+  i2c_smbus_write_byte_data
   i2c_transfer
   i2c_transfer_buffer_flags
   i2c_unregister_device
@@ -16646,6 +16683,7 @@
   init_dummy_netdev
   init_net
   __init_rwsem
+  init_task
   init_timer_key
   init_uts_ns
   init_wait_entry
@@ -16811,6 +16849,7 @@
   kstrtou8
   kstrtouint
   kstrtoull
+  kstrtoull_from_user
   kthread_cancel_delayed_work_sync
   kthread_cancel_work_sync
   kthread_create_on_node
@@ -16907,6 +16946,7 @@
   misc_register
   mmc_of_parse
   mmc_send_tuning
+  mmput
   mod_delayed_work_on
   mod_node_page_state
   mod_timer
@@ -17160,6 +17200,7 @@
   physvirt_offset
   phy_unregister_fixup_for_uid
   phy_write_mmd
+  pid_task
   pinconf_generic_dt_node_to_map
   pinctrl_dev_get_drvdata
   pinctrl_get
@@ -17226,8 +17267,10 @@
   power_supply_get_drvdata
   power_supply_get_property
   power_supply_put
+  power_supply_register
   power_supply_reg_notifier
   power_supply_set_property
+  power_supply_unregister
   power_supply_unreg_notifier
   prandom_u32
   preempt_schedule
@@ -17407,6 +17450,7 @@
   rndis_set_param_vendor
   rndis_signal_connect
   rndis_uninit
+  round_jiffies_relative
   rpmsg_create_ept
   rpmsg_destroy_ept
   rpmsg_poll
@@ -17431,6 +17475,7 @@
   sched_clock
   sched_setattr
   sched_setscheduler
+  sched_show_task
   schedule
   schedule_timeout
   schedule_timeout_interruptible
@@ -18096,7 +18141,9 @@
   __wake_up
   __wake_up_locked
   wake_up_process
+  wakeup_source_add
   wakeup_source_register
+  wakeup_source_remove
   wakeup_source_unregister
   __warn_printk
   wiphy_free
