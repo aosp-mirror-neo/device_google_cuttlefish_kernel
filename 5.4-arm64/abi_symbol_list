@@ -10783,6 +10783,7 @@
   dma_resv_test_signaled_rcu
   dma_resv_wait_timeout_rcu
   dma_set_coherent_mask
+  __dma_request_channel
   dma_set_mask
   do_exit
   do_wait_intr
@@ -11542,11 +11543,18 @@
   __mdiobus_register
   mdiobus_unregister
   media_create_pad_link
+  media_create_intf_link
   media_device_cleanup
   media_device_init
   __media_device_register
+  media_device_register_entity
   media_device_unregister
+  media_device_unregister_entity
+  media_devnode_create
+  media_devnode_remove
   media_entity_pads_init
+  media_entity_remove_links
+  media_remove_intf_links
   memblock_free
   memchr
   memcmp
@@ -12888,7 +12896,9 @@
   vb2_mmap
   vb2_ops_wait_finish
   vb2_ops_wait_prepare
+  vb2_plane_cookie
   vb2_plane_vaddr
+  vb2_prepare_buf
   vb2_poll
   vb2_qbuf
   vb2_querybuf
@@ -12896,6 +12906,7 @@
   vb2_queue_init
   vb2_queue_release
   vb2_reqbufs
+  vb2_request_object_is_buffer
   vb2_streamoff
   vb2_streamon
   vb2_vmalloc_memops
@@ -15796,6 +15807,7 @@
   adjust_managed_page_count
   alarm_cancel
   alarm_init
+  alarm_start
   alarm_start_relative
   alloc_chrdev_region
   __alloc_disk_node
@@ -16648,7 +16660,9 @@
   i2c_put_dma_safe_msg_buf
   i2c_register_driver
   i2c_smbus_read_byte_data
+  i2c_smbus_read_word_data
   i2c_smbus_write_byte_data
+  i2c_smbus_write_word_data
   i2c_transfer
   i2c_transfer_buffer_flags
   i2c_unregister_device
@@ -18154,10 +18168,6 @@
   work_busy
 
 [abi_symbol_list]
-  # b/167230325
-  ehci_handshake
-
-[abi_symbol_list]
 # required by cs35l41_dlkm.ko
   regmap_async_complete
   regmap_multi_reg_write
@@ -18169,6 +18179,11 @@
   snd_soc_get_volsw_range
   snd_soc_info_volsw_range
   snd_soc_put_volsw_range
+
+# required by cs35l45_dlkm.ko
+  devm_snd_soc_register_component
+  regcache_drop_region
+  snd_soc_dapm_del_routes
 
 # required by q6_dlkm.ko
   down_interruptible
